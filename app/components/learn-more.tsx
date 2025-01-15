@@ -1,3 +1,5 @@
+import { currentUser } from "@clerk/nextjs/server";
+
 interface Card {
   title: string;
   description: string;
@@ -5,7 +7,8 @@ interface Card {
   linkText: string;
 }
 
-export function LearnMore({ cards }: { cards: Card[] }) {
+export async function LearnMore({ cards }: { cards: Card[] }) {
+  const user = await currentUser();
   return (
     <div className="relative bg-white" id="features">
       <div className="grid grid-cols-4 gap-8 max-w-[75rem] mx-auto w-full pt-16 pb-24">

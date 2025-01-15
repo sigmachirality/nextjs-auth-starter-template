@@ -1,4 +1,7 @@
-export function Footer() {
+import { currentUser } from "@clerk/nextjs/server";
+
+export async function Footer() {
+  const user = await currentUser();
   return (
     <footer className="max-w-[75rem] bg-white w-full mx-auto pt-6 border-t border-[#EEEEF0] flex justify-between pb-24">
       <a
